@@ -1,19 +1,30 @@
 <?php
-  // Array de chistes
-$jokes = [
-    "¿Por qué los pájaros no usan Facebook? ¡Porque ya tienen Twitter!",
-    "¿Qué le dice una iguana a su hermana gemela? ¡Iguanita!",
-    "¿Cómo maldice un pollito a otro pollito? ¡¡¡¡Que te pongan en la plancha!!!",
-    "¿Qué hace una abeja en el gimnasio? ¡Zum-ba!",
-    "¿Por qué los esqueletos no pelean entre ellos? ¡Porque no tienen agallas!"
-];
+    /*
+    postgresSQL database connection
+    developer : jaider
+    */
+    $host= "localhost"; //127.0.0.1
+    $username = "postgres";
+    $password = "unicesmag";
+    $dbname = "mbeta";
+    $port = "5432";
+    
+    $data_connection = "
+          host=$host
+          port=$port
+          dbname=$dbname
+          user=$username
+          password=$password
+        ";
 
-// Elegir un chiste aleatorio
-$randomIndex = array_rand($jokes);
-$randomJoke = $jokes[$randomIndex];
+        $conn = pg_connect($data_connection);
+        
+        if (! $conn) {
+            die("connection failed : "preg_last_error());
+        }
+            else {
+            echo "Connected successfully";
+         }
 
-// Mostrar el chiste
-echo "<h1>Chiste del día:</h1>";
-echo "<p>$randomJoke</p>";
-
+        pg_close($conn);
    ?>
