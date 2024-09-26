@@ -6,7 +6,7 @@
     $host= "localhost"; //127.0.0.1
     $username = "postgres";
     $password = "unicesmag";
-    $dbname = "mbeta";
+    $dbname = "beta";
     $port = "5432";
     
     $data_connection = "
@@ -20,7 +20,7 @@
         $conn = pg_connect($data_connection);
         
         if (! $conn) {
-            die("connection failed : "preg_last_error());
+            die("connection failed : ". pg_last_error());
         }
             else {
             echo "Connected successfully";
