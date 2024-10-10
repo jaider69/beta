@@ -6,6 +6,22 @@
     <title>Login_form</title>
 </head>
 <body>
-    <a href="https://127.0.0.1/beta/" torget="_blank">Go to home</a>
+    <center><img src ="images/user.png" width="50"></center>
+        <form name = "login_Form" action="backend/signup.php" method="post">
+            <table border="0" align="center">
+             <tr><td><label>Email:</label></td></tr>
+             <tr><td><input type="email" name="email"placeholder="hello@meil.com" required></td></tr>
+             <tr><td><label>Password:</label></td></tr>
+             <tr><td><input type="password" name="passwd"placeholder="**********"  title="please, you need a password"></td></tr>
+             <tr><td><button>login</button></td></tr>
+    
+            </table>
+        </form><br>
+        <center> <br>
+            <a href="https://127.0.0.1/beta/api/src/forgot_pass_form.html" torget="_blank">forgot password
+                
+            </a>
+            &nbsp;|&nbsp;<a href="http://127.0.0.1/beta/api/src/register_form.html" target="_blank">or sing up</a>
+           </center>
 </body>
 </html>

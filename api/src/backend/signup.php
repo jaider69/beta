@@ -5,6 +5,17 @@
    $email = $_POST['email'];	
    $pass = $_POST['passwd'];
    $enc_pass = md5($pass);
+//validate if email already exists
+   $query = "SELECT * FROM users WHERE email = '$email'";
+   $result= pg_query($conn, $query);
+   $row = pg_fetch_assoc($result);
+   if($row) {
+     echo "<script>alert('email already exists!');</script>";
+     header('refresh:0;url=http://127.0.0.1/beta/api/src/register_form.html');
+     exit();
+   }  //End of email validation if statement
+
+
    //query to inset data into user table
    $query = "INSERT INTO users (email, password) 
              VALUES ('$email', '$enc_pass')";
@@ -13,7 +24,9 @@
    
    //Check if the query was successful
    if($result) {
-      echo "Registration successful!";
+     // echo "Registration successful!";
+     echo "<script>alert('registracion seccafuli'!);</script>";
+     header('refresh:0;url=http://127.0.0.1/beta/api/src/login_form.html');
    } else {
       echo "Registration failes: ";
    }
