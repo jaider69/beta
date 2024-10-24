@@ -1,7 +1,7 @@
 <?php
    //DB connection
    require('../../config/db_connection.php');
-   //Get data from register form
+   //Get data from register form http://beta/api/src/backend/signup.php
    $email = $_POST['email'];	
    $pass = $_POST['passwd'];
    $enc_pass = md5($pass);
@@ -39,3 +39,5 @@
    //echo "<br>Passwords: " . $pass;
    //echo "<br>Enc. Password: " . $enc_pass;
 ?>
+
+
